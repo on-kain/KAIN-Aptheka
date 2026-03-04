@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber-Apotheka | Secure Delivery</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем красивый шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <header>
+            <div class="logo">💊 KAIN-<span>Aptheka</span></div>
+            <p class="subtitle">Безопасная доставка медикаментов нового поколения</p>
+        </header>
+        
+        <main class="shop-grid">
+            <!-- Секция выбора -->
+            <section class="card selection-card">
+                <div class="card-icon">🛒</div>
+                <h2>Выберите препарат</h2>
+                <div class="input-group">
+                    <select id="medicineSelect">
+                        <option value="">Загрузка списка...</option>
+                    </select>
+                </div>
+                <div class="info-badge">
+                    🛡️ Все препараты сертифицированы
+                </div>
+            </section>
+
+            <!-- Секция заказа -->
+            <section class="card order-card">
+                <div class="card-icon">🚀</div>
+                <h2>Данные доставки</h2>
+                <div class="input-row">
+                    <input type="text" id="fName" placeholder="Имя" autocomplete="off">
+                    <input type="text" id="lName" placeholder="Фамилия" autocomplete="off">
+                </div>
+                <input type="text" id="phone" placeholder="📞 Номер телефона">
+                <textarea id="address" placeholder="📍 Полный адрес доставки (улица, дом, квартира)"></textarea>
+                
+                <div class="delivery-status">
+                    <span class="dot"></span> Только доставка на дом
+                </div>
+
+                <button id="orderBtn" class="main-button">Оформить заказ на дом</button>
+            </section>
+        </main>
+        
+        <div id="status"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
