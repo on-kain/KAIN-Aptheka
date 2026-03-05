@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # Сервис базы данных
+  db:
+    image: postgres:15
+    container_name: pharmacy_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: P@ssw0rd
+    ports:
+      - "5432:5432"
+    volumes:
+      # Магия Docker: он сам выполнит наш SQL-скрипт при создании базы
+      - ./database.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres_data:/var/lib/postgresql/data
+
+  # Сервис бэкенда
+  backend:
+    build: .
+    container_name: pharmacy_backend
+    ports:
+      - "8080:8080"
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: P@ssw0rd
+      DB_NAME: postgres
+      DB_HOST: db  # ВАЖНО: имя сервиса базы данных в Docker
+      DB_PORT: 5432
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:

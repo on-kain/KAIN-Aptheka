@@ -1,5 +1,3 @@
-CREATE Database -- 'Name Database'
-
 DROP TABLE IF EXISTS orders, medicines, users CASCADE;
 
 CREATE TABLE users (
